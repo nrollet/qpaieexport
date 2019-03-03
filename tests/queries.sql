@@ -12,8 +12,6 @@ SELECT NumeroEmploye, periode, SBase, Brut, TrancheA,
     TrancheB, TrancheC, BaseSecu,
     TotRetenue, TotCotisPatron,
     NetImpos, NetAPayer, MtNetPayeTheo,
-    NbHNormal, NbHTrav, CoutGlobalMois,
-    CumCpDus, CumCpPris, CumProvCp,
-    CumMtCpPris, CumCpDus_1, CumCpPris_1,
-    CumProvCp_1, CumMtCpPris_1
+    NbHNormal, NbHTrav, CoutGlobalMois, 
+
 FROM Bulletins
