@@ -97,16 +97,23 @@ class QueryPaie(object):
                 sortie = None
 
             self.dataemp.append([numero, nom, entree, sortie])
+            column_names = (
+                ("matricule", "text"),
+                ("nom", "text"),
+                ("entree", "text"),
+                ("sortie", "text"),
+            )
 
-        return self.dataemp
+        return [self.dataemp, column_names]
 
-    def collecte_bulletins(self):
+    def bulletins(self):
         """requête pour les données des bulletins"""
         sql = "SELECT * FROM Bulletins"
 
         self.cursor.execute(sql)
         self.databull = self.cursor.fetchall()
-        return self.databull
+        # print (self.cursor.description)
+        return [self.databull, self.cursor.description]  #
 
 
 if __name__ == "__main__":
@@ -124,8 +131,14 @@ if __name__ == "__main__":
     if o.connect(mdbpath):
         logging.info("success")
     pp.pprint(o.param_dossier())
-    # pp.pprint(o.employes())
-    pp.pprint(o.periodepaie)
-    pp.pprint(o.collecte_bulletins())
+    data, columns = o.employes()
+
+    pp.pprint(data)
+    # print(o.employes()[0])
+    # tst = o.cursor.description[0][1]
+    # print(type(tst))
+    # if tst == <class 'str'>:
+    #     print("yes")
+
     o.disconnect()
 

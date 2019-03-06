@@ -1,6 +1,6 @@
 *.py[cod]
 .vscode
-
+.db
 # C extensions
 *.so
 
