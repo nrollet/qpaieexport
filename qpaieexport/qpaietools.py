@@ -78,7 +78,8 @@ class QueryPaie(object):
             DateSortie1,
             DateSortie2,
         ) in data:
-            numero = Numero.lstrip()
+            numero = Numero
+            # numero = Numero.lstrip()
             nom = NomNaissance
             if NomMarital:
                 nom = NomMarital
@@ -130,11 +131,13 @@ if __name__ == "__main__":
     o = QueryPaie()
     if o.connect(mdbpath):
         logging.info("success")
-    pp.pprint(o.param_dossier())
-    data, columns = o.employes()
+    # pp.pprint(o.param_dossier())
+    # data, columns = o.employes()
 
-    pp.pprint(data)
-    # print(o.employes()[0])
+    # pp.pprint(data)
+    # pp.pprint(columns)
+    data, columns = o.bulletins()
+    pp.pprint(columns)
     # tst = o.cursor.description[0][1]
     # print(type(tst))
     # if tst == <class 'str'>:

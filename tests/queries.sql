@@ -15,3 +15,10 @@ SELECT NumeroEmploye, periode, SBase, Brut, TrancheA,
     NbHNormal, NbHTrav, CoutGlobalMois, 
 
 FROM Bulletins
+
+
+
+SELECT E.Nom, B.Brut FROM Employes E
+LEFT JOIN Bulletins B
+ON E.matricule=B.NumeroEmploye
+WHERE sortie is null
